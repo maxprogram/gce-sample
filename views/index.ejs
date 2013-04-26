@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/styles.css" type="text/css" />
+</head>
+<body>
+
+    <h1><%= title %></h1>
+
+    <form id="newAnimal">
+        Add an animal:<br/>
+        <p><label>Name:</label>
+            <input type="text" id="name"></p>
+        <p><label>Species:</label>
+            <input type="text" id="species"></p>
+        <p><input type="submit" value="Submit"></p>
+    </form>
+
+    <div id="test"></div>
+
+    <script type="text/javascript" src="javascripts/lib.js"></script>
+    <script type="text/javascript" src="https://raw.github.com/wycats/handlebars.js/1.0.0-rc.3/dist/handlebars.runtime.js"></script>
+    <script type="text/javascript" src="javascripts/app.js"></script>
+</body>
+</html>

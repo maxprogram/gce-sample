@@ -1,0 +1,28 @@
+
+@import "mixins";
+
+body {
+  color: @grayDarker;
+  padding: 50px;
+  font-size: @baseFontSize;
+  font-family: @sansFontFamily;
+}
+
+a {
+  color: @blue;
+}
+
+li {
+    list-style: none;
+    margin: 0;
+    height: 37px;
+    line-height: 37px;
+    form {
+        display: inline;
+        margin: 0;
+    }
+    input {
+        border: 0px;
+        background-color: @grayLighter;
+    }
+}
