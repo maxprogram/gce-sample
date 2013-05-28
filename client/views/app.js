@@ -7,7 +7,10 @@ $(function($) {
 
         initialize: function() {
             gce.log("App started!");
-            var maxView = new app.MaxView();
+
+            app.animalList = new app.AnimalList();
+            app.homeView = new app.HomeView();
+            app.animalList.reset(app.animalListInitial);
         }
 
     });

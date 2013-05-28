@@ -1,6 +1,6 @@
 var app = app || {};
 
-$(function($) {
+$(function() {
 
     app.AnimalView = Backbone.View.extend({
         tagName: "li",

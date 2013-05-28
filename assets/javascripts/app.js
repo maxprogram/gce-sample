@@ -1,5 +1,5 @@
 //=============================================
-///Users/Max/Dropbox/websites/notes+/client/models/animal.js
+///Users/Max/Dropbox/websites/gce-sample/client/models/animal.js
 //=============================================
 
 var app = app || {};
@@ -17,39 +17,35 @@ var app = app || {};
 
 
 //=============================================
-///Users/Max/Dropbox/websites/notes+/client/collections/animalList.js
+///Users/Max/Dropbox/websites/gce-sample/client/collections/animalList.js
 //=============================================
 
 var app = app || {};
 
 (function($) {
 
-    var AnimalList = Backbone.Collection.extend({
+    app.AnimalList = Backbone.Collection.extend({
         model: app.Animal,
 
         url: '/animal',
 
-        initialize: function() {
-            this.fetch();
-        },
+        initialize: function() {},
 
         comparator: function(Animal) {
             return Animal.get('id');
         }
     });
 
-    app.animalList = new AnimalList();
-
 })(jQuery);
 
 
 //=============================================
-///Users/Max/Dropbox/websites/notes+/client/views/animalView.js
+///Users/Max/Dropbox/websites/gce-sample/client/views/animalView.js
 //=============================================
 
 var app = app || {};
 
-$(function($) {
+$(function() {
 
     app.AnimalView = Backbone.View.extend({
         tagName: "li",
@@ -91,7 +87,7 @@ $(function($) {
 
 
 //=============================================
-///Users/Max/Dropbox/websites/notes+/client/views/app.js
+///Users/Max/Dropbox/websites/gce-sample/client/views/app.js
 //=============================================
 
 var app = app || {};
@@ -103,7 +99,10 @@ $(function($) {
 
         initialize: function() {
             gce.log("App started!");
-            var maxView = new app.MaxView();
+
+            app.animalList = new app.AnimalList();
+            app.homeView = new app.HomeView();
+            app.animalList.reset(app.animalListInitial);
         }
 
     });
@@ -112,14 +111,14 @@ $(function($) {
 
 
 //=============================================
-///Users/Max/Dropbox/websites/notes+/client/views/maxView.js
+///Users/Max/Dropbox/websites/gce-sample/client/views/homeView.js
 //=============================================
 
 var app = app || {};
 
-$(function($) {
+$(function() {
 
-    app.MaxView = Backbone.View.extend({
+    app.HomeView = Backbone.View.extend({
         el: $("#newAnimal"),
 
         events: {
@@ -127,7 +126,7 @@ $(function($) {
         },
 
         initialize: function() {
-            this.listenTo(app.animalList, "reset", this.render);
+            this.listenTo(app.animalList, "reset sync", this.render);
             this.listenTo(app.animalList, "add", this.addOne);
 
             this.$list = $("<ul/>");
@@ -161,7 +160,7 @@ $(function($) {
 
 
 //=============================================
-///Users/Max/Dropbox/websites/notes+/client/routers/router.js
+///Users/Max/Dropbox/websites/gce-sample/client/routers/router.js
 //=============================================
 
 var app = app || {};
@@ -188,7 +187,7 @@ var app = app || {};
 
 
 //=============================================
-///Users/Max/Dropbox/websites/notes+/client/templates/animal.hbs
+///Users/Max/Dropbox/websites/gce-sample/client/templates/animal.hbs
 //=============================================
 
 var app = app || {};
@@ -215,7 +214,7 @@ Handlebars.partials["animal"] = app.jst["animal"];
 })();
 
 //=============================================
-///Users/Max/Dropbox/websites/notes+/client/app.js
+///Users/Max/Dropbox/websites/gce-sample/client/app.js
 //=============================================
 
 //= require_tree ./models
@@ -239,4 +238,4 @@ var app = app || {};
 // Line numbers for debugging
 var gce = gce || {};
 gce.files = gce.files || {};
-gce.files['/javascripts/app.js'] = [["models/animal.js","collections/animalList.js","views/animalView.js","views/app.js","views/maxView.js","routers/router.js","templates/animal.hbs","app.js"], [13,22,42,16,44,22,22,17]];
+gce.files['/javascripts/app.js'] = [["models/animal.js","collections/animalList.js","views/animalView.js","views/app.js","views/homeView.js","routers/router.js","templates/animal.hbs","app.js"], [13,18,42,19,44,22,22,17]];

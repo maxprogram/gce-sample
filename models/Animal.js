@@ -1,18 +1,22 @@
 // Animal Model
 
-module.exports = function(val) {
-    return {
-        name: "Animal",
+var Model = require('grand-central-express').Model;
 
-        schema: {
-            name: String,
-            species: String,
-            created_at: Date,
-            updated_at: Date
-        },
+module.exports = new Model({
 
-        methods: {},
+    name: "Animal",
 
-        validations: {}
-    };
-};
+    schema: {
+        name: String,
+        species: String,
+        created_at: Date,
+        updated_at: Date
+    },
+
+    methods: {},
+
+    validations: {},
+
+    relationships: []
+
+});
