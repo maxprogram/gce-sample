@@ -7,9 +7,9 @@
         "start": "node run"
     },
     "dependencies": {
-        "express": "3.0.0rc5",
+        "express": "3.2.5",
         "ejs": "*",
-        "grand-central-express": "0.1.0",
+        "grand-central-express": "0.1.11",
         "grand-central-records": "*",
         "less-middleware": "*",
         "sqlite3": "*"
